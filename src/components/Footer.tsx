@@ -45,16 +45,16 @@ const Footer = () => {
 
             {/* Social */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-primary">Redes Sociais</h3>
-              <div className="flex gap-4">
+              <h3 className="text-lg font-bold text-primary border-b border-primary/20 pb-2">Redes Sociais</h3>
+              <div className="flex gap-4 ">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="p-3 rounded-lg bg-card/50 border border-primary/20 hover:border-primary hover:bg-primary/10 transition-all hover-glow-cyan"
+                    className="p-3 rounded-xl bg-card/50 border border-primary/20 hover:border-primary hover:bg-primary/10 transition-all hover-glow-cyan"
                   >
-                    <social.icon className="h-5 w-5 text-primary" />
+                    <social.icon className="h-5 w-5 text-primary"/>
                   </a>
                 ))}
               </div>
@@ -62,13 +62,9 @@ const Footer = () => {
           </div>
 
           {/* Bottom Section */}
-          <div className="pt-8 border-t border-primary/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="pt-8 border-t border-primary/20 flex flex-col md:flex-row justify-center items-center gap-4 ">
             <p className="text-foreground/60 text-sm">
               © {currentYear} Luis Miguel. Todos os direitos reservados.
-            </p>
-            <p className="text-foreground/60 text-sm flex items-center gap-1">
-              Feito com <Heart className="h-4 w-4 text-secondary fill-secondary" /> e muito
-              código
             </p>
           </div>
         </div>

@@ -14,14 +14,14 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "luis.miguel@email.com",
-      link: "mailto:luis.miguel@email.com",
+      value: "luismiguelcintrasilva180@email.com",
+      link: "mailto:luismiguelcintrasilva180@email.com",
     },
     {
       icon: Phone,
       title: "Telefone",
-      value: "+55 (11) 98765-4321",
-      link: "tel:+5511987654321",
+      value: "+55 (11) 98950-5804",
+      link: "tel:+5511989505804",
     },
     {
       icon: MapPin,

@@ -19,7 +19,7 @@ const Skills = () => {
     },
     {
       title: "Hard Skills",
-      skills: ["UI/UX Design", "Prototipagem", "Debugging", "Performance Optimization"],
+      skills: ["Data Center", "UI/UX Design", "Prototipagem", "Debugging", "Performance Optimization"],
       color: "green",
     },
     {
