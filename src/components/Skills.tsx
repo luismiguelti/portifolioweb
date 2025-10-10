@@ -1,7 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Skills = () => {
+  const titleAnimation = useScrollAnimation();
+  const descAnimation = useScrollAnimation();
+
   const skillCategories = [
     {
       title: "Linguagens & Tecnologias",
@@ -41,48 +45,63 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
-          <span className="text-primary glow-cyan font-mono">&lt;HABILIDADES /&gt;</span>
-        </h2>
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 mb-12">
-          {skillCategories.map((category, index) => (
-            <Card
-              key={index}
-              className="bg-card/50 border-primary/20 hover:border-primary/50 transition-all hover-glow-cyan animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader>
-                <CardTitle className="text-xl text-gradient-green font-mono">
-                  {category.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="outline"
-                      className={`${getColorClass(category.color)} px-3 py-1 font-mono text-xs hover-glow-cyan`}
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        <div 
+          ref={titleAnimation.ref}
+          className={`scroll-reveal ${titleAnimation.isVisible ? 'visible' : ''}`}
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
+            <span className="text-primary glow-cyan font-mono">&lt;HABILIDADES /&gt;</span>
+          </h2>
         </div>
 
-        <Card className="max-w-4xl mx-auto bg-card/50 border-primary/20 animate-fade-in-up">
-          <CardContent className="p-8">
-            <p className="text-center text-foreground/70 leading-relaxed">
-              Desenvolvedor front-end apaixonado por criar interfaces modernas e funcionais.
-              Combinando conhecimento técnico sólido com criatividade e foco na experiência
-              do usuário para entregar soluções digitais de alta qualidade.
-            </p>
-          </CardContent>
-        </Card>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 mb-12">
+          {skillCategories.map((category, index) => {
+            const cardAnimation = useScrollAnimation();
+            return (
+              <div
+                key={index}
+                ref={cardAnimation.ref}
+                className={`scroll-reveal-scale ${cardAnimation.isVisible ? 'visible' : ''}`}
+              >
+                <Card className="bg-card/50 border-primary/20 hover:border-primary transition-all duration-300 rounded-2xl card-hover cursor-pointer border-animated h-full">
+                  <CardHeader>
+                    <CardTitle className="text-xl text-gradient-green font-mono">
+                      {category.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <Badge
+                          key={skill}
+                          variant="outline"
+                          className={`${getColorClass(category.color)} px-3 py-1 font-mono text-xs rounded-full transition-all duration-300 hover:scale-110 cursor-pointer`}
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            );
+          })}
+        </div>
+
+        <div 
+          ref={descAnimation.ref}
+          className={`scroll-reveal ${descAnimation.isVisible ? 'visible' : ''}`}
+        >
+          <Card className="max-w-4xl mx-auto bg-card/50 border-primary/20 rounded-2xl">
+            <CardContent className="p-8">
+              <p className="text-center text-foreground/70 leading-relaxed">
+                Desenvolvedor front-end apaixonado por criar interfaces modernas e funcionais.
+                Combinando conhecimento técnico sólido com criatividade e foco na experiência
+                do usuário para entregar soluções digitais de alta qualidade.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );

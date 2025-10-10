@@ -3,8 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Contact = () => {
+  const titleAnimation = useScrollAnimation();
+  const infoAnimation = useScrollAnimation();
+  const formAnimation = useScrollAnimation();
+
   const contactInfo = [
     {
       icon: Mail,
@@ -34,13 +39,21 @@ const Contact = () => {
   return (
     <section id="contato" className="py-20 relative">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
-          <span className="text-primary glow-cyan font-mono">&lt;CONTATO /&gt;</span>
-        </h2>
+        <div 
+          ref={titleAnimation.ref}
+          className={`scroll-reveal ${titleAnimation.isVisible ? 'visible' : ''}`}
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
+            <span className="text-primary glow-cyan font-mono">&lt;CONTATO /&gt;</span>
+          </h2>
+        </div>
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
-          <div className="space-y-6 animate-slide-in-left">
+          <div 
+            ref={infoAnimation.ref}
+            className={`scroll-reveal-left ${infoAnimation.isVisible ? 'visible' : ''} space-y-6`}
+          >
             <div>
               <h3 className="text-2xl font-bold text-gradient-green mb-4">
                 Vamos Trabalhar Juntos?
@@ -55,14 +68,14 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <Card
                   key={index}
-                  className="bg-card/50 border-primary/20 hover:border-primary/50 transition-all hover-glow-cyan"
+                  className="bg-card/50 border-primary/20 hover:border-primary transition-all duration-300 rounded-2xl card-hover cursor-pointer"
                 >
                   <CardContent className="p-4">
                     <a
                       href={info.link}
                       className="flex items-center gap-4 group"
                     >
-                      <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                         <info.icon className="h-5 w-5" />
                       </div>
                       <div>
@@ -77,45 +90,50 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-card/50 border-primary/20 animate-fade-in-up">
-            <CardContent className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Input
-                    placeholder="Seu Nome"
-                    className="bg-background/50 border-primary/20 focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="email"
-                    placeholder="Seu Email"
-                    className="bg-background/50 border-primary/20 focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <Input
-                    placeholder="Assunto"
-                    className="bg-background/50 border-primary/20 focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    placeholder="Sua Mensagem"
-                    rows={5}
-                    className="bg-background/50 border-primary/20 focus:border-primary resize-none"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground border-glow-magenta group"
-                >
-                  Enviar Mensagem
-                  <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          <div 
+            ref={formAnimation.ref}
+            className={`scroll-reveal-right ${formAnimation.isVisible ? 'visible' : ''}`}
+          >
+            <Card className="bg-card/50 border-primary/20 rounded-2xl">
+              <CardContent className="p-6">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <Input
+                      placeholder="Seu Nome"
+                      className="bg-background/50 border-primary/20 focus:border-primary rounded-xl"
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      type="email"
+                      placeholder="Seu Email"
+                      className="bg-background/50 border-primary/20 focus:border-primary rounded-xl"
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      placeholder="Assunto"
+                      className="bg-background/50 border-primary/20 focus:border-primary rounded-xl"
+                    />
+                  </div>
+                  <div>
+                    <Textarea
+                      placeholder="Sua Mensagem"
+                      rows={5}
+                      className="bg-background/50 border-primary/20 focus:border-primary resize-none rounded-xl"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground border-glow-magenta group rounded-xl"
+                  >
+                    Enviar Mensagem
+                    <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const About = () => {
+  const titleAnimation = useScrollAnimation();
+  const imageAnimation = useScrollAnimation();
+  const contentAnimation = useScrollAnimation();
+
   const stats = [
     { value: "50+", label: "Projetos" },
     { value: "3+", label: "Anos Exp." },
@@ -10,23 +15,36 @@ const About = () => {
   return (
     <section id="sobre" className="py-20 relative">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
-          <span className="text-primary glow-cyan font-mono">&lt;SOBRE /&gt;</span>
-        </h2>
+        <div 
+          ref={titleAnimation.ref}
+          className={`scroll-reveal ${titleAnimation.isVisible ? 'visible' : ''}`}
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
+            <span className="text-primary glow-cyan font-mono">&lt;SOBRE /&gt;</span>
+          </h2>
+        </div>
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <div className="relative group animate-slide-in-left">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg transform group-hover:scale-105 transition-transform"></div>
-            <img
-              src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Desenvolvedor Front-end"
-              className="relative rounded-lg w-full h-auto border-2 border-primary/30 shadow-lg"
-            />
+          <div 
+            ref={imageAnimation.ref}
+            className={`scroll-reveal-left ${imageAnimation.isVisible ? 'visible' : ''} relative group`}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
+            <div className="relative rounded-full overflow-hidden border-4 border-primary/30 hover:border-primary transition-all duration-300 image-glow aspect-square w-full max-w-md mx-auto">
+              <img
+                src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Desenvolvedor Front-end"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
           </div>
 
           {/* Content */}
-          <div className="space-y-6 animate-fade-in-up">
+          <div 
+            ref={contentAnimation.ref}
+            className={`scroll-reveal-right ${contentAnimation.isVisible ? 'visible' : ''} space-y-6`}
+          >
             <h3 className="text-2xl md:text-3xl font-bold text-gradient-green">
               Desenvolvedor Front-end Especialista
             </h3>
@@ -52,7 +70,7 @@ const About = () => {
               {stats.map((stat, index) => (
                 <Card
                   key={index}
-                  className="bg-card/50 border-primary/20 hover:border-primary/50 transition-colors hover-glow-cyan"
+                  className="bg-card/50 border-primary/20 hover:border-primary transition-all duration-300 rounded-2xl card-hover cursor-pointer"
                 >
                   <CardContent className="p-4 text-center">
                     <div className="text-2xl md:text-3xl font-bold text-gradient-cyber mb-1">
