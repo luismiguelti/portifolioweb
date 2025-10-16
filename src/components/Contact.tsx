@@ -30,11 +30,26 @@ const Contact = () => {
       link: "#",
     },
   ];
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-  };
+  // Pegando os valores do formulário
+  const form = e.currentTarget;
+  const nome = (form.elements[0] as HTMLInputElement).value;
+  const email = (form.elements[1] as HTMLInputElement).value;
+  const assunto = (form.elements[2] as HTMLInputElement).value;
+  const mensagem = (form.elements[3] as HTMLTextAreaElement).value;
+
+  // Montando a mensagem
+  const texto = `Olá, meu nome é ${nome}.\nEmail: ${email}\nAssunto: ${assunto}\nMensagem: ${mensagem}`;
+
+  // Encode para URL
+  const encodedText = encodeURIComponent(texto);
+
+  // Abrindo WhatsApp
+  window.open(`https://wa.me/5511989505804?text=${encodedText}`, '_blank');
+};
+
 
   return (
     <section id="contato" className="py-20 relative">

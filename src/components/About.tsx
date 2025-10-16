@@ -7,8 +7,8 @@ const About = () => {
   const contentAnimation = useScrollAnimation();
 
   const stats = [
-    { value: "50+", label: "Projetos" },
-    { value: "3+", label: "Anos Exp." },
+    { value: "10+", label: "Projetos" },
+    { value: "1+", label: "Anos Exp." },
     { value: "100%", label: "Dedicação" },
   ];
 
@@ -46,7 +46,7 @@ const About = () => {
             className={`scroll-reveal-right ${contentAnimation.isVisible ? 'visible' : ''} space-y-6`}
           >
             <h3 className="text-2xl md:text-3xl font-bold text-gradient-green">
-              Desenvolvedor Front-end Especialista
+              Olá, eu sou o Luis Miguel !
             </h3>
 
             <p className="text-foreground/70 leading-relaxed">

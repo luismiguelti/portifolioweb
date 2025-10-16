@@ -116,7 +116,7 @@ export default function Hero() {
               <AiFillLinkedin className="h-8 w-8 hover:scale-[1.05] transition-transform" />
             </a>
             <a
-              href="mailto:luismiguelcintrasilva180@gmail.com"
+              href="mailto:luismiguelcintrasilva180@email.com"
               className="text-foreground/60 hover:text-primary transition-colors"
               aria-label="Email"
             >
