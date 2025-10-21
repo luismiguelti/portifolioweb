@@ -7,7 +7,7 @@ const About = () => {
   const contentAnimation = useScrollAnimation();
 
   const stats = [
-    { value: "10+", label: "Projetos" },
+    { value: "5+", label: "Projetos" },
     { value: "1+", label: "Anos Exp." },
     { value: "100%", label: "Dedicação" },
   ];
@@ -35,7 +35,7 @@ const About = () => {
               <img
                 src="/public/1738818808043.jpeg"
                 alt="Desenvolvedor Front-end"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
           </div>
