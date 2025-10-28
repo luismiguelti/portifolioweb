@@ -9,7 +9,7 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Linguagens & Tecnologias",
-      skills: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+      skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS", "API Rest", "SQL"],
       color: "cyan",
     },
     {

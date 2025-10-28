@@ -11,7 +11,7 @@ const Projects = () => {
     {
       title: "FitMentoria ",
       description: "Landing page para FitMentoria, focada em nutrição e saúde.",
-      image: "/public/fitmentor.png",
+      image: "https://www.fiberoficial.com.br/cdn/shop/articles/academia_musculacao.jpg?v=1687444110&width=2048",
       tags: ["HTML5", "CSS3", "JavaScript", "Tailwind"],
       github: "https://github.com/luismiguelti/fitmentor",
       live: "https://fitmentor-beryl.vercel.app/",

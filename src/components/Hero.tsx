@@ -4,7 +4,7 @@ import { ArrowRight, Download, Mail, ChevronDown } from "lucide-react";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 export default function Hero() {
-  const techStack = ["HTML5", "CSS3", "JavaScript", "Tailwind", "Figma", "Git", "GitHub", "Python", "Data Center"];
+  const techStack = ["HTML5", "CSS3", "JavaScript", "Tailwind", "Figma", "Git", "GitHub", "Python", "Banco de Dados", "React.js", "API Rest", "SQL"];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

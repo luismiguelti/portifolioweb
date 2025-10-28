@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import img from '/public/1738818808043.jpeg';
 
 const About = () => {
   const titleAnimation = useScrollAnimation();
