@@ -34,7 +34,7 @@ const About = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
             <div className="relative rounded-full overflow-hidden border-4 border-primary/30 hover:border-primary transition-all duration-300 image-glow aspect-square w-full max-w-md mx-auto">
               <img
-                src="/public/1738818808043.jpeg"
+                src="https://media.licdn.com/dms/image/v2/D4D03AQFcO1ZGFTl6oQ/profile-displayphoto-shrink_200_200/B4DZTZrV_wHAAc-/0/1738818807981?e=1762992000&v=beta&t=s5FzuvmkDAQBJsm0RWsLVJIeHJoVTkFc9ESNGt-4Tvs"
                 alt="Desenvolvedor Front-end"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
